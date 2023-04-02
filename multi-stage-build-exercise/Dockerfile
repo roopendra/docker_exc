@@ -11,7 +11,6 @@ FROM openjdk:11
 #Change the workdir to where the app will be installed
 WORKDIR /opt/hello-world
 #Copy the JAR file created previously
-COPY --from=0 /build/target/hello-world-1.0.0.jar app.jar
+COPY --from=0 /build/target/hello-world-1.0.0.jar /home/ubuntu/deployment_dir/app.jar
 #Create an entrypoint to run the application
-ENTRYPOINT ["/usr/bin/java", "-jar", "app.jar"]
-
+ENTRYPOINT ["/usr/bin/java", "-jar", "/home/ubuntu/deployment_dir/app.jar"]
