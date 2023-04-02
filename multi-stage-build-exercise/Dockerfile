@@ -7,7 +7,7 @@ WORKDIR /build
 #Use maven to build the application
 RUN mvn clean package
 #Create a new build stage from the Java image which has java installed already
-FROM java:11
+FROM openjdk:11
 #Change the workdir to where the app will be installed
 WORKDIR /opt/hello-world
 #Copy the JAR file created previously
